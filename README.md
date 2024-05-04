@@ -1,8 +1,15 @@
-# React + Vite
+React Vite Porject 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Title : IG Tech Services Test
 
-Currently, two official plugins are available:
+First clone the Project using like this
+git clone github_project_Link
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Navigate to Project directory using 
+cd Project_folderName
+
+then Install dependencies using : npm i 
+
+after that run the project using  : "npm run dev "  using code editor
+
+description : This project, "IG Tech Services," is a demonstration website created specifically for showcasing at IG Tech. It's built using React with Vite and Material ui, which ensures fast development and build times.
