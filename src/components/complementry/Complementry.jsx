@@ -2,6 +2,8 @@ import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 import complementImg from "../../assets/Images/complementry.png";
 import accelerateImg from "../../assets/Images/acceleration.png";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const styles = {
   mainContainer: {
@@ -10,10 +12,12 @@ const styles = {
   centerText: {
     textAlign: "center",
     fontWeight: 800,
+    fontSize: {xs: "20px", md: "30px"}
   },
   headlineGreen: {
     textAlign: "center",
-    fontWeight: 800,
+    fontWeight: { xs: "700", md: 800 },
+    fontSize: { xs: "30px", md: "60px" },
     color: "#43AC44",
   },
   imageContainer: {
@@ -21,11 +25,11 @@ const styles = {
     justifyContent: "center",
   },
   largeImage: {
-    width: 500,
+    width: { xs: "80%", md: "500px" },  // Adjusted to match your inline styles
   },
   descriptionText: {
-    textAlign: "center",
-    width: 700,
+    textAlign:{xs: "justify", md: "center"},
+    width: { xs: "100%", md: "700px" },
     margin: "10px auto",
   },
   buttonStyle: {
@@ -42,6 +46,9 @@ const styles = {
 };
 
 function Complementary() {
+  const theme = useTheme();
+  const isXs = useMediaQuery(theme.breakpoints.down("xs"));
+
   return (
     <Box sx={styles.mainContainer}>
       <Typography variant="h5" sx={styles.centerText}>
@@ -50,12 +57,8 @@ function Complementary() {
       <Typography variant="h2" sx={styles.headlineGreen}>
         IS Complimentary!
       </Typography>
-      <Box sx={styles.imageContainer}>
-        <img
-          src={complementImg}
-          alt="Complementary"
-          style={styles.largeImage}
-        />
+      <Box sx={styles.imageContainer} marginY={"20px"}>
+        <Box component="img" src={complementImg} alt="Complementary" sx={styles.largeImage} />
       </Box>
 
       <Box my="20px">
@@ -72,11 +75,7 @@ function Complementary() {
           journey.
         </Typography>
         <Box sx={styles.imageContainer}>
-          <img
-            src={accelerateImg}
-            alt="Acceleration"
-            style={styles.largeImage}
-          />
+          <Box component="img" src={accelerateImg} alt="Acceleration" sx={styles.largeImage} />
         </Box>
       </Box>
 

@@ -6,10 +6,11 @@ import interestedImage from "../../assets/Images/interested.png";
 import ifyou from "../../assets/Images/ifyou.png";
 import progress from "../../assets/Images/progressyou.png";
 import nutral from "../../assets/Images/nutra.png";
-
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 const styles = {
   mainContainer: {
-    paddingX: 4,
+    paddingX:{xs: 1, md: 4},
   },
   centerText: {
     textAlign: "center",
@@ -23,7 +24,7 @@ const styles = {
   descriptionText: {
     textAlign: "center",
     fontWeight: 600,
-    width: 600,
+    width: { xs: "100%", md: 600 },
     margin: "20px auto",
   },
   imageContainer: {
@@ -32,19 +33,19 @@ const styles = {
     my: 2,
   },
   imageStyle: {
-    width: 300,
+    width: { xs: "280px", md: 300 },
   },
   headerText: {
     textAlign: "center",
     fontWeight: 800,
     color: "#43AC44",
-    width: 300,
+    width: { xs: "100%", md: 300 },
     margin: "10px auto",
   },
   bodyText: {
     textAlign: "center",
     fontWeight: 600,
-    width: 700,
+    width: { xs: "90%", md: 700 },
     margin: "auto",
   },
   buttonStyle: {
@@ -61,6 +62,8 @@ const styles = {
 };
 
 const ForYou = () => {
+  const theme = useTheme();
+  const isXs = useMediaQuery(theme.breakpoints.down("xs"));
   return (
     <>
       <Box sx={styles.mainContainer}>
@@ -74,10 +77,11 @@ const ForYou = () => {
           Have already tried to build an online business before and failed.
         </Typography>
         <Box sx={styles.imageContainer}>
-          <img
+          <Box
+            component="img"
             src={forYouImage}
-            style={styles.imageStyle}
             alt="Challenges faced in online business"
+            sx={styles.imageStyle}
           />
         </Box>
         <Typography variant="h6" sx={styles.descriptionText}>
@@ -85,9 +89,10 @@ const ForYou = () => {
           income source.
         </Typography>
         <Box sx={styles.imageContainer}>
-          <img
+          <Box
+            component="img"
             src={replaceImage}
-            style={styles.imageStyle}
+            sx={styles.imageStyle}
             alt="Job replacement idea"
           />
         </Box>
@@ -101,27 +106,57 @@ const ForYou = () => {
         automating it and working from the comfort of your own home part-time.
       </Typography>
       <Box sx={styles.imageContainer}>
-        <img
+        <Box
+          component="img"
           src={interestedImage}
-          style={{ width: 500 }}
+          sx={{ width: { xs: "280px", md: 500 } }}
           alt="Interested in drop-shipping business"
         />
       </Box>
-      <Grid container spacing={4}>
+      <Grid
+        container
+        spacing={4}
+        marginY={"20px"}
+        sx={{
+          flexDirection: { xs: 'column-reverse', md: 'row' }  
+        }}
+  
+      >
         <Grid item xs={12} md={6}>
-          <Box sx={{ display: "flex", justifyContent: "end" }}>
-            <img
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: { xs: "center", md: "end" },
+            }}
+          >
+            <Box
+              component="img"
               src={ifyou}
-              style={{ width: 300 }}
+              sx={{
+                width: { xs: "280px", md: "300px" },
+              }}
               alt="Interested in drop-shipping business"
             />
           </Box>
         </Grid>
-        <Grid item xs={12} md={6} sx={{ alignContent: "center" }}>
-          <Typography variant="h4" sx={{ fontWeight: "800" }}>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{ alignContent: "center", mx: { xs: 2, md: 0 } }}
+        >
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: "800", textAlign: { xs: "center", md: "start" } }}
+          >
             IF YOU
           </Typography>
-          <Box sx={{ width: "300px" }}>
+          <Box
+            sx={{
+              width: { xs: "100%", md: "300px" },
+              textAlign: { xs: "center", md: "start" },
+            }}
+          >
             Want expert, credible sound{" "}
             <span style={{ color: "green", fontWeight: "400" }}>guidance</span>{" "}
             to filter all the other
@@ -139,7 +174,7 @@ const ForYou = () => {
           textAlign: "center",
           fontWeight: 800,
           color: "#43AC44",
-          width: 300,
+          width: { xs: "100%", md: 300 },
           marginX: " auto",
           marginTop: "30px ",
         }}
@@ -155,16 +190,19 @@ const ForYou = () => {
           textAlign: "center",
           fontWeight: 800,
           color: "#43AC44",
-          width: 300,
+          width: { xs: "100%", md: 300 },
           marginX: " auto",
         }}
       >
         IN JUST 6-DAYS!
       </Typography>
       <Box sx={styles.imageContainer}>
-        <img
+        <Box
+          component="img"
           src={progress}
-          style={{ width: 500 }}
+          sx={{
+            width: { xs: "100%", md: "500px" },
+          }}
           alt="Interested in drop-shipping business"
         />
       </Box>
@@ -173,13 +211,22 @@ const ForYou = () => {
           <Box>
             <Typography
               variant="h4"
-              sx={{ fontWeight: "800", textAlign: "center" }}
+              sx={{
+                fontWeight: { xs: "600", md: "800" },
+                marginTop: { xs: "20px", md: "0px" },
+                textAlign: "center",
+              }}
             >
               Ready To Jump Into The
             </Typography>
             <Typography
               variant="h2"
-              sx={{ fontWeight: "800", color: "#43AC44", textAlign: "center" }}
+              sx={{
+                fontWeight: { xs: "600", md: "800" },
+                color: "#43AC44",
+                textAlign: "center",
+                fontSize: { xs: "40px", md: "60px" },
+              }}
             >
               NutraFunnels Accelerator?
             </Typography>
@@ -198,7 +245,7 @@ const ForYou = () => {
           <Box>
             <img
               src={nutral}
-              style={{ width: 600 }}
+              style={{ width: "100%" }}
               alt="Interested in drop-shipping business"
             />
           </Box>

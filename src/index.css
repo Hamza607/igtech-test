@@ -9,3 +9,11 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+.PhoneInputInput {
+  flex: 1;
+  min-width: 0;
+  height: 50px;
+  border: transparent;
+  background: transparent;
+  outline: none;
+}

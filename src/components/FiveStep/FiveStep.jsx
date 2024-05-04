@@ -59,7 +59,14 @@ const FiveStep = () => {
 
   return (
     <>
-      <Box sx={{ my: 4, bgcolor: "#F6F6F6", p: 2, height: "480px" }}>
+      <Box
+        sx={{
+          my: 4,
+          bgcolor: "#F6F6F6",
+          p: 2,
+          height: { xs: "auto", md: "480px" },
+        }}
+      >
         <Typography variant="h5" fontWeight="600" textAlign="center">
           How to become successful{" "}
         </Typography>
@@ -70,13 +77,24 @@ const FiveStep = () => {
           in 5 steps{" "}
         </Typography>
         <Box sx={{ position: "relative" }}>
-          <Box width="320px" sx={{ position: "relative", m: "auto" }}>
+          <Box
+            sx={{
+              position: "relative",
+              m: "auto",
+              width: { xs: "80%", md: "320px" },
+            }}
+          >
             <Image src={stepImage} width="100%" alt="Step Image" />
             <Image
               src={globalimg}
               width="60px"
               alt="global Image"
-              style={{ position: "absolute", top: "56%", left: "40%" }}
+              sx={{
+                position: "absolute",
+                top: "56%",
+                left: "40%",
+                display: { xs: "none", md: "block" },
+              }}
             />
             {steps.map((step) => (
               <Box
@@ -91,8 +109,13 @@ const FiveStep = () => {
                       ? "center"
                       : "end",
                   mt: 4,
-                  position: "absolute",
-                  ...step.position,
+                  position: { md: "absolute", xs: "static" }, // 'static' on xs screens, 'absolute' on sm and larger
+                  top: { md: step.position.top, xs: "auto" }, // 'auto' removes the positioning on xs
+                  left: { md: step.position.left, xs: "auto" },
+                  right: { md: step.position.right, xs: "auto" },
+                  bottom: { md: step.position.bottom, xs: "auto" },
+                  mx: { xs: "auto", md: 0 }, // Centers the box on xs screens, no extra margin on md and up
+                  textAlign: { xs: "center", md: step.textAlign },
                 }}
               >
                 <Typography
@@ -115,7 +138,7 @@ const FiveStep = () => {
             display: "flex",
             justifyContent: "center",
             position: "relative",
-            top: "110px",
+            top: { xs: 0, md: "110px" },
           }}
         >
           <Button
@@ -128,6 +151,7 @@ const FiveStep = () => {
               px: 6,
               bgcolor: "#D20000",
               fontSize: "20px",
+              marginTop: {xs: "20px", md: "0px"}
             }}
           >
             Yes, I'm in

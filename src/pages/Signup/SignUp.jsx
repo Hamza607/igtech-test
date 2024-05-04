@@ -7,7 +7,7 @@ import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 
 const FullHeightBox = styled(Box)(({ theme }) => ({
-  height: "100vh",
+  height: "120vh",
   padding: theme.spacing(8, 5),
   backgroundImage: `url(${backImg})`,
   backgroundSize: "cover",
@@ -47,7 +47,7 @@ const AbsoluteImage = styled("img")(({ theme, side }) => ({
 
 const InputField = styled(TextField)(({ theme }) => ({
   width: "100%",
-  backgroundColor: theme.palette.grey[200],
+  backgroundColor: "#f7f7f7",
   fontWeight: "700",
   "& .MuiInputBase-input::placeholder": {
     color: "black",
@@ -103,6 +103,15 @@ const SignUp = () => {
             defaultCountry="PK"
             value={value}
             onChange={setValue}
+            style={{
+              width: "100%",
+              height: "50px",
+              backgroundColor: "#f7f7f7",
+              color: "#333",
+              border: "1px solid rgb(169, 169, 169)",
+              borderRadius: "5px",
+              padding: "20px",
+            }}
           />
         </Box>
         <Typography variant="h5" textAlign="center" fontWeight="700">
